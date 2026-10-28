@@ -32,9 +32,9 @@ void MotorSim::set_target_current(double current_ref_A) {
 
 // Update the current and torque feedback
 void MotorSim::current_loop_update() {
-    // Ideal motor where reference current becomes actual/feedback value instantenously
-    //TBD limit should be moved into the PI controller
-    state_.actual_current_A = std::clamp(current_ref_A_, -params_.max_current_A, params_.max_current_A);
+    // Ideal current loop: the actual current equals the reference instantaneously.
+    // The current limit is applied in the velocity controller.
+    state_.actual_current_A = current_ref_A_;
     state_.actual_torque_Nm = params_.Kt_Nm_per_A * state_.actual_current_A;
 }
 

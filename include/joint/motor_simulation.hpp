@@ -18,7 +18,7 @@ public:
     struct State {
         double angle_rad = 0.0;      // true angle, NOT wrapped (keeps counting up)
         double velocity_rad_s = 0.0; // true angular velocity
-        double actual_current_A = 0.0;      // actual current (after the +-peak limit)
+        double actual_current_A = 0.0;      // actual current (= reference, ideal current loop)
         double actual_torque_Nm = 0.0;      // actual motor torque = Kt * actual_current_A
     };
 
